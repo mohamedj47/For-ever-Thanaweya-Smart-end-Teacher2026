@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Subject, GradeLevel } from '../types';
 import { 
@@ -12,7 +11,6 @@ import {
   Scale, 
   BrainCircuit,
   Activity,
-  BookType,
   Dna,
   ScrollText,
   Flag,
@@ -25,7 +23,7 @@ interface SubjectGridProps {
 }
 
 const subjectIcons: Partial<Record<Subject, React.ReactNode>> = {
-  [Subject.ARABIC]: <BookType className="w-10 h-10 text-emerald-600" />,
+  [Subject.ARABIC]: <BookOpen className="w-10 h-10 text-emerald-600" />,
   [Subject.ENGLISH]: <Languages className="w-10 h-10 text-blue-600" />,
   [Subject.FRENCH]: <div className="font-black text-3xl text-indigo-600">Fr</div>,
   [Subject.GERMAN]: <div className="font-black text-3xl text-amber-600">De</div>,
@@ -89,17 +87,20 @@ const SUBJECTS_BY_GRADE: Record<GradeLevel, Subject[]> = {
 };
 
 export const SubjectGrid: React.FC<SubjectGridProps> = ({ grade, onSelect }) => {
-  // Defensive check
   const displayedSubjects = SUBJECTS_BY_GRADE[grade];
 
   if (!displayedSubjects || displayedSubjects.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center p-10 bg-white rounded-xl shadow-sm border border-slate-200 mt-4 text-center">
         <AlertCircle size={48} className="text-amber-500 mb-4" />
-        <h3 className="text-xl font-bold text-slate-800 mb-2">عذراً، لا توجد مواد متاحة لهذا الصف حالياً</h3>
-        <p className="text-slate-500">يرجى التأكد من اختيار الصف الدراسي الصحيح أو التواصل مع الدعم الفني.</p>
+        <h3 className="text-xl font-bold text-slate-800 mb-2">
+          عذراً، لا توجد مواد متاحة لهذا الصف حالياً
+        </h3>
+        <p className="text-slate-500">
+          يرجى التأكد من اختيار الصف الدراسي الصحيح أو التواصل مع الدعم الفني.
+        </p>
         <div className="mt-4 p-2 bg-slate-100 rounded text-xs text-slate-400 font-mono">
-           Debug: Grade="{grade}"
+          Debug: Grade="{grade}"
         </div>
       </div>
     );
@@ -124,3 +125,4 @@ export const SubjectGrid: React.FC<SubjectGridProps> = ({ grade, onSelect }) => 
     </div>
   );
 };
+
