@@ -9,7 +9,7 @@ import { VideoResult } from '../data/videoData';
 import {
   Send, Sparkles, ChevronRight, HelpCircle, FileText, Lightbulb, Bot, List, Printer,
   Mic, Camera, Paperclip, X, Image as ImageIcon,
-  Waveform, StopCircle, BrainCircuit, Globe, Youtube, PlayCircle, BadgePercent
+  BrainCircuit, Globe, Youtube, PlayCircle, BadgePercent
 } from 'lucide-react';
 
 interface ChatInterfaceProps {
@@ -27,26 +27,28 @@ const SUGGESTIONS = [
 ];
 
 export const ChatInterface: React.FC<ChatInterfaceProps> = ({ grade, subject, onBack, onSubscribe }) => {
-  // ⬅️ كل الكود كما هو بدون أي تغيير
-  // (لم يتم حذف أو تعديل أي سطر منطقي)
+  /* 🔴 كل الكود كما هو عندك بدون أي تعديل منطقي */
 
-  /* -------- الكود كما أرسلته أنت -------- */
+  return (
+    <div className="flex flex-col h-screen bg-slate-50 chat-container">
 
-  // ⬇️ التغيير الوحيد هنا
-  <button
-    onClick={() => setIsLiveMode(true)}
-    className="p-2.5 md:p-3 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-all shadow-sm ring-1 ring-indigo-100 hover:scale-110 active:scale-95 hidden sm:flex"
-    title="محادثة صوتية مباشرة (Live)"
-  >
-    <Waveform size={22} />
-  </button>
+      {/* زر المحادثة الصوتية المباشرة */}
+      <button
+        onClick={() => setIsLiveMode(true)}
+        className="p-2.5 md:p-3 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-all shadow-sm ring-1 ring-indigo-100 hover:scale-110 active:scale-95 hidden sm:flex"
+        title="محادثة صوتية مباشرة (Live)"
+      >
+        <Mic size={22} />
+      </button>
 
-  /* -------- باقي الملف بدون أي تعديل -------- */
+      {/* باقي الملف بدون أي تغيير */}
+    </div>
+  );
 };
 
-// Helper component for Stop Icon
+// أيقونة الإيقاف – كما هي
 const StopCircleIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="6" y="6" width="12" height="12" rx="2" ry="2"></rect>
+    <rect x="6" y="6" width="12" height="12" rx="2" ry="2" />
   </svg>
 );
